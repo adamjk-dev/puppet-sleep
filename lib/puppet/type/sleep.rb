@@ -15,7 +15,7 @@ Puppet::Type.newtype(:sleep) do
       Integer(snore)
     end
     validate do |zzzz|
-      fail("sleepy time isn't an integer") unless zzzz =~ /\A\d+\z/
+      fail("sleepy time isn't an integer: #{zzzz}") unless Integer(zzzz)
     end
     defaultto { @resource[:name] }
 
